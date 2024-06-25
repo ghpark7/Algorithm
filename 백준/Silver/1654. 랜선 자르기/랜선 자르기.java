@@ -13,9 +13,8 @@ public class Main {
 		
 		for (int i = 0; i < K; i++) {
 			arr[i] = sc.nextInt();
-			if(max < arr[i]) {
+			if(max < arr[i])
 				max = arr[i];
-			}
 		}
 		
 		max++;
