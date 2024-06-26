@@ -3,13 +3,13 @@ import java.util.Collections;
 import java.util.Scanner;
 
 class Edge implements Comparable<Edge> {
-    int start;
-    int end;
+    int x;
+    int y;
     int weight;
 
-    Edge(int start, int end, int weight) {
-        this.start = start;
-        this.end = end;
+    Edge(int x, int y, int weight) {
+        this.x = x;
+        this.y = y;
         this.weight = weight;
     }
 
@@ -31,10 +31,10 @@ public class Main {
 
         edgeList = new ArrayList<>();
         for (int i = 0; i < M; i++) {
-            int start = scanner.nextInt();
-            int end = scanner.nextInt();
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
             int weight = scanner.nextInt();
-            edgeList.add(new Edge(start, end, weight));
+            edgeList.add(new Edge(x, y, weight));
         }
 
         parent = new int[N + 1];
@@ -49,9 +49,9 @@ public class Main {
         for (int i = 0; i < edgeList.size(); i++) {
             Edge edge = edgeList.get(i);
 
-            if (find(edge.start) != find(edge.end)) {
+            if (find(edge.x) != find(edge.y)) {
                 answer += edge.weight;
-                union(edge.start, edge.end);
+                union(edge.x, edge.y);
                 max = edge.weight;
             }
         }
